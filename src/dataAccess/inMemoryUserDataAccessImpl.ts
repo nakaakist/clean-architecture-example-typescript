@@ -15,17 +15,23 @@ export class InMemoryUserDataAccessImpl implements UserDataAccess {
   }
 
   public async listAllUsers(): Promise<User[]> {
-    return this.users;
+    // to prevent contamination of in-memory data after returning users,
+    // return cloned users (same for other methods).
+    return this.users.map((u) => new User(u.id, u.name));
   }
 
   public async findUserById(id: string): Promise<User | void> {
     const user = this.users.find((u) => u.id === id);
-    return user;
+    if (user) {
+      return new User(user.id, user.name);
+    }
   }
 
   public async findUserByName(name: string): Promise<User | void> {
     const user = this.users.find((u) => u.name === name);
-    return user;
+    if (user) {
+      return new User(user.id, user.name);
+    }
   }
 
   public async deleteUser(id: string): Promise<void> {
