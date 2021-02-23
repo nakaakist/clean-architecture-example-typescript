@@ -9,25 +9,23 @@ describe('User entity', () => {
   let validator: UserValidator;
 
   test('validation pass', async () => {
-    expect.assertions(1);
     validator = {
       isNameNotEmpty: jest.fn().mockReturnValueOnce(true),
       isNameUnique: jest.fn().mockResolvedValueOnce(true),
     };
     const user = new User('1', 'name');
-    expect(user.validate(validator)).resolves.toEqual(new Success(null));
+    const result = await user.validate(validator);
+    expect(result).toEqual(new Success(null));
   });
 
   test('validation error if name is empty', async () => {
-    expect.assertions(1);
     validator = {
       isNameNotEmpty: jest.fn().mockReturnValueOnce(false),
       isNameUnique: jest.fn().mockResolvedValueOnce(true),
     };
     const user = new User('1', '');
-    expect(user.validate(validator)).resolves.toEqual(
-      new Failure(new UserNameEmptyValidationError())
-    );
+    const result = await user.validate(validator);
+    expect(result).toEqual(new Failure(new UserNameEmptyValidationError()));
   });
 
   test('validation error if name is not unique', async () => {
@@ -37,7 +35,8 @@ describe('User entity', () => {
       isNameUnique: jest.fn().mockResolvedValueOnce(false),
     };
     const user = new User('1', 'name');
-    expect(user.validate(validator)).resolves.toEqual(
+    const result = await user.validate(validator);
+    expect(result).toEqual(
       new Failure(new UserNameNotUniqueValidationError('name'))
     );
   });

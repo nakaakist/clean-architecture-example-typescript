@@ -1,4 +1,4 @@
 export type Response = {
-  body: { [key: string]: any } | any[];
+  body: { [key: string]: unknown } | unknown[];
   status: number;
 };

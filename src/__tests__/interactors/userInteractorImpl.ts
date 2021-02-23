@@ -1,3 +1,6 @@
+// to use "toHaveBeenCalled" method in jest, partially disable eslint
+/* eslint-disable @typescript-eslint/unbound-method */
+
 import { UserDataAccess } from 'src/dataAccessInterfaces/userDataAccess';
 import { UserNameEmptyValidationError } from 'src/entities/errors';
 import { UserValidator } from 'src/entities/interfaces/userValidator';

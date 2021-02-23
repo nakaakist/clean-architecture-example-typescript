@@ -2,10 +2,9 @@ import { ValidationError } from 'src/errors/validationErrors';
 import { Failure, Result, Success } from 'src/result';
 
 import { UserNameEmptyValidationError, UserNameNotUniqueValidationError } from './errors';
-import { Entity } from './interfaces/entity';
 import { UserValidator } from './interfaces/userValidator';
 
-export class User implements Entity {
+export class User {
   private _id: string;
   private _name: string;
 

@@ -69,9 +69,4 @@ describe('in-memory user dataAccess', () => {
     expect(users.length).toBe(1);
     expect(users[0].id).toBe('1');
   });
-
-  test('throws no error when deleting user with non-existing ID', () => {
-    expect.assertions(1);
-    expect(dataAccess.deleteUser('3')).resolves.not.toThrowError();
-  });
 });
