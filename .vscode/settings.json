@@ -1,7 +1,4 @@
 {
   "editor.formatOnSave": true,
-  "[typescript,json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "importSorter.generalConfiguration.sortOnBeforeSave": true
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }

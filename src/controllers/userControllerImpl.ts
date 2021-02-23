@@ -4,8 +4,10 @@ import { UserController } from './interfaces/userController';
 import { Request } from './types/request';
 import { Response } from './types/response';
 import {
-    assertIsCreateUserRequest, assertIsDeleteUserRequest, assertIsFindUserByIdRequest,
-    assertIsUpdateUserRequest
+  assertIsCreateUserRequest,
+  assertIsDeleteUserRequest,
+  assertIsFindUserByIdRequest,
+  assertIsUpdateUserRequest,
 } from './types/userRequests';
 import { buildErrorResponse } from './util';
 

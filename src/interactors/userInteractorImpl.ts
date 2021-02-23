@@ -7,9 +7,14 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { UserWithIdNotFoundValidationError } from './errors';
 import { UserInteractor } from './interfaces/userInteractor';
-import { CreateUserInputData, UpdateUserInputData } from './types/userInputData';
 import {
-    CreateUserOutputData, FindUserByIdOutputData, ListAllUsersOutputData
+  CreateUserInputData,
+  UpdateUserInputData,
+} from './types/userInputData';
+import {
+  CreateUserOutputData,
+  FindUserByIdOutputData,
+  ListAllUsersOutputData,
 } from './types/userOutputData';
 
 export class UserInteractorImpl implements UserInteractor {

@@ -1,7 +1,10 @@
 import { ValidationError } from 'src/errors/validationErrors';
 import { Failure, Result, Success } from 'src/result';
 
-import { UserNameEmptyValidationError, UserNameNotUniqueValidationError } from './errors';
+import {
+  UserNameEmptyValidationError,
+  UserNameNotUniqueValidationError,
+} from './errors';
 import { UserValidator } from './interfaces/userValidator';
 
 export class User {

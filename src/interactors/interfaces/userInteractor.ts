@@ -1,9 +1,14 @@
 import { ValidationError } from 'src/errors/validationErrors';
 import { Result } from 'src/result';
 
-import { CreateUserInputData, UpdateUserInputData } from '../types/userInputData';
 import {
-    CreateUserOutputData, FindUserByIdOutputData, ListAllUsersOutputData
+  CreateUserInputData,
+  UpdateUserInputData,
+} from '../types/userInputData';
+import {
+  CreateUserOutputData,
+  FindUserByIdOutputData,
+  ListAllUsersOutputData,
 } from '../types/userOutputData';
 
 export interface UserInteractor {

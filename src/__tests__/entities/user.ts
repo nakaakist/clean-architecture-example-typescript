@@ -1,5 +1,6 @@
 import {
-    UserNameEmptyValidationError, UserNameNotUniqueValidationError
+  UserNameEmptyValidationError,
+  UserNameNotUniqueValidationError,
 } from 'src/entities/errors';
 import { UserValidator } from 'src/entities/interfaces/userValidator';
 import { User } from 'src/entities/user';

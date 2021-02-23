@@ -1,5 +1,6 @@
 import {
-    InvalidInputValidationError, ResourceConflictValidationError
+  InvalidInputValidationError,
+  ResourceConflictValidationError,
 } from 'src/errors/validationErrors';
 
 export class UserNameEmptyValidationError extends InvalidInputValidationError {
