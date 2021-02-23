@@ -1,5 +1,5 @@
-import { UserDataAccess } from '../DataAccessInterfaces/userDataAccess';
-import { UserValidator } from '../entities/interfaces/userValidator';
+import { UserDataAccess } from 'src/dataAccessInterfaces/userDataAccess';
+import { UserValidator } from 'src/entities/interfaces/userValidator';
 
 export class UserValidatorImpl implements UserValidator {
   private readonly dataAccess: UserDataAccess;
