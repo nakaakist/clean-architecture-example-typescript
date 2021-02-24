@@ -1,4 +1,4 @@
 export interface UserValidator {
   isNameNotEmpty(name: string): boolean;
-  isNameUnique(name: string): Promise<boolean>;
+  isNameUnique(id: string, name: string): Promise<boolean>;
 }

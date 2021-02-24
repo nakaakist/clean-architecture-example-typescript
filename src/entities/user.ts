@@ -38,7 +38,7 @@ export class User {
     if (!validator.isNameNotEmpty(this._name)) {
       return new Failure(new UserNameEmptyValidationError());
     }
-    if (!(await validator.isNameUnique(this._name))) {
+    if (!(await validator.isNameUnique(this._id, this._name))) {
       return new Failure(new UserNameNotUniqueValidationError(this._name));
     }
 

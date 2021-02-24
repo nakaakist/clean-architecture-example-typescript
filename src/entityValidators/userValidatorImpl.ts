@@ -16,10 +16,12 @@ export class UserValidatorImpl implements UserValidator {
     }
   }
 
-  public async isNameUnique(name: string): Promise<boolean> {
+  public async isNameUnique(id: string, name: string): Promise<boolean> {
     const user = await this.dataAccess.findUserByName(name);
     if (!user) {
       return true;
+    } else if (user.id === id) {
+      return true; // user with same name exists, but it is the user to validate here
     } else {
       return false;
     }

@@ -88,6 +88,18 @@ describe('e2e test for express app', () => {
       expect(users[0].name).toBe('updated-name');
     });
 
+    it('update user with same name', async () => {
+      const updateRes = await request(app)
+        .put(`/users/${initialUser.id}`)
+        .send({ name: initialUser.name });
+      const listRes = await request(app).get('/users');
+      const users = listRes.body as userParams[];
+      expect(updateRes.status).toBe(204);
+      expect(users.length).toBe(1);
+      expect(users[0].id).toBe(initialUser.id);
+      expect(users[0].name).toBe(initialUser.name);
+    });
+
     it('cannot update user with non-existing ID', async () => {
       const res = await request(app).get(`/users/non-existing`);
       expect(res.status).toBe(404);

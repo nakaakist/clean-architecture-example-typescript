@@ -26,20 +26,26 @@ describe('user validator', () => {
     expect(validator.isNameNotEmpty('name')).toBe(true);
   });
 
-  test('name uniqueness check for unique name', async () => {
-    expect.assertions(1);
+  test('name uniqueness check for unique name (user does not exist with same name)', async () => {
     dataAccess.findUserByName = jest.fn().mockReturnValueOnce(null);
-    const result = await validator.isNameUnique('name');
+    const result = await validator.isNameUnique('1', 'name');
+    expect(result).toBe(true);
+  });
+
+  test('name uniqueness check for unique name ("other" user does not exist with same name)', async () => {
+    dataAccess.findUserByName = jest
+      .fn()
+      .mockReturnValueOnce(new User('1', 'name'));
+    const result = await validator.isNameUnique('1', 'name');
     expect(result).toBe(true);
   });
 
   test('name uniqueness check for non-unique name', async () => {
-    expect.assertions(1);
     dataAccess.findUserByName = jest
       .fn()
       .mockReturnValueOnce(new User('1', 'name'));
     validator = new UserValidatorImpl(dataAccess);
-    const result = await validator.isNameUnique('name');
+    const result = await validator.isNameUnique('2', 'name');
     expect(result).toBe(false);
   });
 });
